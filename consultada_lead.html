@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias! | Braza & Carbón</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #1a1a1a;
+            --whatsapp: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--secondary);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .btn-back {
+            background: white;
+            color: black;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        /* Footer Integrado para Consistencia */
+        footer {
+            background: transparent;
+            color: #555;
+            padding: 2rem 10%;
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid #333;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+    </style>
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="main-content">
+        <div class="icon"><i data-lucide="check" size="50"></i></div>
+        <h1>¡Reserva Recibida!</h1>
+        <p style="color: #aaa;">Se Registró tu Reservar. El fuego ya está encendido y nos pondremos en contacto pronto.
+        </p>
+        <a href="index.html" class="btn-back">Volver al Inicio</a>
+    </div>
+
+    <a href="https://wa.me/51987654321" class="whatsapp-float">
+        <i data-lucide="message-circle" size="32"></i>
+    </a>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i data-lucide="instagram" size="24"></i></a>
+            <a href="#"><i data-lucide="facebook" size="24"></i></a>
+            <a href="#"><i data-lucide="twitter" size="24"></i></a>
+        </div>
+        <p>&copy; 2024 Braza & CARBÓN. ARTESANOS DEL FUEGO.</p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu pedido! | Braza & Carbón</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #1a1a1a;
+            --text-dark: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .card {
+            max-width: 500px;
+        }
+
+        .icon-check {
+            color: #25d366;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-home {
+            padding: 1rem 2.5rem;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover {
+            background: var(--primary);
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.2);
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="icon-check">
+            <i data-lucide="check-circle" size="80"></i>
+        </div>
+        <h1>¡Gracias por tu Compra!</h1>
+        <p>Gracias por confiar en <strong>Braza & Carbón</strong>. Nos pondremos en contacto contigo en los próximos
+            minutos para confirmar los detalles de tu entrega.</p>
+
+        <a href="index.html" class="btn-home">Volver al inicio</a>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braza & Carbón | Parrilla al Carbón Premium</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #1a1a1a;
+            --accent: #d4a373;
+            --whatsapp: #25d366;
+            --text-light: #f8f9fa;
+            --text-dark: #333;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 10%;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-reserve {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .btn-reserve:hover {
+            transform: translateY(-3px);
+            background: #c12e3a;
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            background-attachment: fixed;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            margin-bottom: 1rem;
+        }
+
+
+
+        /* MENÚ */
+        .section-padding {
+            padding: 8rem 10%;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .menu-item {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+            display: block;
+            text-align: center;
+        }
+
+        .img-container {
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1.5s;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .cta-detail {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover .cta-detail {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SECCIONES COMUNES */
+        .section-padding {
+            padding: 8rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        /* GRID DE PRODUCTOS / MENÚ */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .menu-item {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+            display: block;
+            text-align: center;
+        }
+
+        .img-container {
+            height: 350px;
+            /* Ajuste leve para mejor visualización */
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: block;
+            /* Asegura que el enlace ocupe todo el espacio */
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1.5s;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .cta-detail {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover .cta-detail {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* TIENDA */
+        .shop-section {
+            background-color: #fcfcfc;
+        }
+
+
+
+        /* QUIÉNES SOMOS */
+        .about-section {
+            background-color: var(--secondary);
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .about-content {
+            padding: 6rem 10%;
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        .about-image {
+            height: 100%;
+            min-height: 500px;
+            background: url('img/1.jpg') no-repeat center;
+            background-size: cover;
+        }
+
+        /* CONTACTO Y MAPA */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: #fff;
+        }
+
+        .contact-left {
+            background: #f8f9fa;
+            padding: 4rem 10%;
+        }
+
+        .map-box {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-right {
+            padding: 4rem 10%;
+            background: var(--secondary);
+            color: white;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .contact-form .btn-submit:hover {
+            background: #c12e3a;
+        }
+
+        /* WHATSAPP & FOOTER */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        footer {
+            background: #000;
+            color: #555;
+            padding: 4rem 10% 2rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icons a {
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 992px) {
+
+            .contact-container,
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 350px;
+                order: -1;
+            }
+
+            header {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-THCFV9PT');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THCFV9PT" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header id="header">
+        <a href="#" class="logo">Braza<span>&</span>Carbón</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#menu">Carta</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#contacto" class="btn-reserve">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="reveal active">
+            <h1>Pasión por las Brasas</h1>
+            <p>El arte del fuego en el corazón de La Molina.</p>
+        </div>
+    </section>
+
+    <section class="section-padding" id="menu">
+        <div class="section-title reveal" style="text-align: center; margin-bottom: 4rem;">
+            <h2>Nuestra Carta</h2>
+            <div style="width: 80px; height: 3px; background: var(--primary); margin: 1rem auto;"></div>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Redirección actualizada -->
+            <div class="menu-item reveal">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd679?auto=format&fit=crop&q=80&w=800"
+                        alt="" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800'">
+                </div>
+                <h3>Tomahawk de Autor</h3>
+                <span class="price">$85.00</span>
+                <a href="producto1.html" class="cta-detail">Ver Detalles</a>
+            </div>
+
+            <!-- Redirección actualizada -->
+            <div class="menu-item reveal" style="transition-delay: 0.1s;">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=800"
+                        alt="" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800'">
+                </div>
+                <h3>Picaña Wagyu A5</h3>
+                <span class="price">$62.00</span>
+                <a href="producto2.html" class="cta-detail">Ver Detalles</a>
+            </div>
+
+            <!-- Redirección actualizada -->
+            <div class="menu-item reveal" style="transition-delay: 0.2s;">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800"
+                        alt="" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800'">
+                </div>
+                <h3>Costillar al Humo</h3>
+                <span class="price">$45.00</span>
+                <a href="producto3.html" class="cta-detail">Ver Detalles</a>
+            </div>
+
+            <div class="menu-item reveal">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=800"
+                        alt="" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800'">
+                </div>
+                <h3>Bife de Chorizo</h3>
+                <span class="price">$38.00</span>
+                <a href="producto4.html" class="cta-detail">Ver Detalles</a>
+            </div>
+
+            <div class="menu-item reveal" style="transition-delay: 0.1s;">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&q=80&w=800"
+                        alt="" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800'">
+                </div>
+                <h3>Entraña Fina</h3>
+                <span class="price">$42.00</span>
+                <a href="producto5.html" class="cta-detail">Ver Detalles</a>
+            </div>
+
+            <div class="menu-item reveal" style="transition-delay: 0.2s;">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800"
+                        alt="" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800'">
+                </div>
+                <h3>Pulpo a la Brasa</h3>
+                <span class="price">$55.00</span>
+                <a href="producto6.html" class="cta-detail">Ver Detalles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: TIENDA DE PRODUCTOS -->
+    <section class="section-padding shop-section" id="tienda">
+        <div class="section-title reveal">
+            <h2>Accesorios & Insumos</h2>
+            <div style="width: 80px; height: 3px; background: var(--primary); margin: 1rem auto;"></div>
+            <p style="margin-top: 1rem; color: #666;">Lleva la calidad de Braza & Carbón a tu propia parrilla.</p>
+        </div>
+
+        <div class="menu-grid">
+            <div class="menu-item reveal">
+                <a href="articulo1.html" class="img-container">
+                    <img src="img/a3.webp" alt="Carbón Premium">
+                </a>
+                <h3>Mandil Parrillero</h3>
+                <span class="price">$15.00</span>
+                <a href="articulo1.html" class="cta-detail">Comprar Ahora</a>
+            </div>
+
+            <div class="menu-item reveal" style="transition-delay: 0.1s;">
+                <a href="articulo2.html" class="img-container">
+                    <img src="img/a2.webp" alt="Set de Cuchillos">
+                </a>
+                <h3>Parrilla Profesional</h3>
+                <span class="price">$2200.00</span>
+                <a href="articulo2.html" class="cta-detail">Comprar Ahora</a>
+            </div>
+
+            <div class="menu-item reveal" style="transition-delay: 0.1s;">
+                <a href="articulo3.html" class="img-container">
+                    <img src="img/a1.webp" alt="Set de Cuchillos">
+                </a>
+                <h3>Set de Cuchillos</h3>
+                <span class="price">$120.00</span>
+                <a href="articulo3.html" class="cta-detail">Comprar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="nosotros">
+        <div class="about-content reveal">
+            <h2>Quiénes Somos</h2>
+            <p>En Braza & Carbón, el fuego no es solo una forma de cocción, es nuestra filosofía. Nacimos con la visión
+                de elevar la parrilla tradicional a una experiencia sensorial inigualable en Lima.</p>
+            <p>Seleccionamos cuidadosamente cada corte, trabajando con ganaderías que respetan los tiempos de
+                maduración, asegurando que cada bocado conserve la esencia y el sabor que solo el carbón de quebracho
+                puede otorgar.</p>
+            <p>Ubicados en el exclusivo entorno de Las Lagunas de La Molina, ofrecemos un refugio para los verdaderos
+                amantes de la carne, donde la técnica del maestro parrillero y el servicio de excelencia se encuentran.
+            </p>
+        </div>
+        <div class="about-image reveal"></div>
+    </section>
+
+    <section class="contact-container" id="contacto">
+        <div class="contact-left reveal">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Visítanos</h2>
+            <div class="map-box">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15604.428456209865!2d-76.91851944999999!3d-12.087431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c128509e5b5f%3A0x6b44615a6b7d22b2!2sLas%20Lagunas%2C%20La%20Molina%2C%20Lima!5e0!3m2!1ses!2spe!4v1712165000000!5m2!1ses!2spe"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="contact-info-item">
+                <i data-lucide="map-pin" style="color: var(--primary);"></i>
+                <p>Calle Las Lagunas 450, La Molina, Lima - Perú</p>
+            </div>
+            <div class="contact-info-item">
+                <i data-lucide="clock" style="color: var(--primary);"></i>
+                <p>Mar - Dom: 12:30 PM - 11:00 PM</p>
+            </div>
+            <div class="contact-info-item">
+                <i data-lucide="phone" style="color: var(--primary);"></i>
+                <p>+51 987 654 321</p>
+            </div>
+        </div>
+
+        <div class="contact-right reveal">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Consultas Generales</h2>
+            <p style="margin-bottom: 2rem; color: #aaa;">¿Tienes un evento especial o una duda? Nuestro equipo te
+                responderá a la brevedad.</p>
+            <form class="contact-form" action="consultada_lead.html">
+                <input type="text" placeholder="Nombre completo" required>
+                <input type="number" placeholder="Teléfono" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <textarea rows="5" placeholder="Tu mensaje o consulta" required></textarea>
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <a href="https://wa.me/51987654321" class="whatsapp-float">
+        <i data-lucide="message-circle" size="32"></i>
+    </a>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i data-lucide="instagram" size="24"></i></a>
+            <a href="#"><i data-lucide="facebook" size="24"></i></a>
+            <a href="#"><i data-lucide="twitter" size="24"></i></a>
+        </div>
+        <p>&copy; 2024 Braza & CARBÓN. ARTESANOS DEL FUEGO.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 80);
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+
+</html>
